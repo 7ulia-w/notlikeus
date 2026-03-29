@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog</title>
+</head>
+<body>
+    <h1>Blog Posts</h1>
+    <input type="text" id="search" placeholder="Search posts...">
+    
+    <div id="tag-filters">
+        <h3>Tags</h3>
+        <button class="filter" data-tag="technology">Technology</button>
+        <button class="filter" data-tag="lifestyle">Lifestyle</button>
+        <button class="filter" data-tag="travel">Travel</button>
+        <!-- Add more tags as needed -->
+    </div>
+    
+    <div id="post-list">
+        <div class="post">
+            <h2>Post Title 1</h2>
+            <p>Summary of post 1...</p>
+        </div>
+        <div class="post">
+            <h2>Post Title 2</h2>
+            <p>Summary of post 2...</p>
+        </div>
+        <!-- Add more posts as needed -->
+    </div>
+
+    <script>
+        // JavaScript for search and filter functionality
+        document.getElementById('search').addEventListener('input', function() {
+            const query = this.value.toLowerCase();
+            const posts = document.querySelectorAll('.post');
+            posts.forEach(post => {
+                const title = post.querySelector('h2').textContent.toLowerCase();
+                post.style.display = title.includes(query) ? '' : 'none';
+            });
+        });
+        
+        const filters = document.querySelectorAll('.filter');
+        filters.forEach(filter => {
+            filter.addEventListener('click', function() {
+                const tag = this.getAttribute('data-tag');
+                // Implement filtering logic based on tag
+            });
+        });
+    </script>
+</body>
+</html>
